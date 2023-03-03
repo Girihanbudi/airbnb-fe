@@ -1,0 +1,15 @@
+{
+  "airbnbSetup": "Airbnb your home",
+  "tabLocale": "Language and Region",
+  "tabCurrency": "Currency",
+  "chooseLanguageAndRegion": "Choose a language and region",
+  "chooseCurrency": "Choose a currency",
+  "buttonWhere": "Anywhere",
+  "buttonWhen": "Anyweek",
+  "buttonGuest": "Add guest",
+  "buttonFilter": "Filter",
+  "signUp": "Sign up",
+  "login": "Log in",
+  "hostAnExperience": "Host an experience",
+  "help": "Help"
+}
