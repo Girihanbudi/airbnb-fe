@@ -10,7 +10,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/a11y";
-import { Button } from "@mui/material";
 
 export interface CarouselProps extends BoxProps {
   images: string[];
@@ -70,6 +69,7 @@ export const Carousel = ({
                 objectFit: "cover",
                 position: "absolute",
               }}
+              sizes="100%"
               src={image}
               alt="image"
             />
