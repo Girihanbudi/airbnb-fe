@@ -11,6 +11,16 @@ export interface ILocale {
   updatedAt: Date | null;
 }
 
+export const ilocaleKeys: (keyof ILocale)[] = [
+  "code",
+  "name",
+  "local",
+  "location",
+  "lcid",
+  "iso639_1",
+  "iso639_2",
+];
+
 export const defaultLocale: ILocale = {
   code: "",
   name: "",
