@@ -1,0 +1,5 @@
+{
+  "DEFAULT_FED_001": "Field cannot be empty",
+  "DEFAULT_SYS_500": "Internal server error",
+  "DEFAULT_SCM_001": "Bad schema request"
+}
