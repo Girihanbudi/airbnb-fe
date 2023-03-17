@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
-import { localesReducer } from "@/modules/Setting/store/reducers";
+import {
+  localesReducer,
+  currenciesReducer,
+} from "@/modules/Setting/store/reducers";
 
 export const store = configureStore({
   reducer: {
     locales: localesReducer,
+    currencies: currenciesReducer,
   },
 });
 // Infer the `RootState` and `AppDispatch` types from the store itself
