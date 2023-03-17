@@ -1,5 +1,5 @@
-import { ILocale, ilocaleKeys } from "./../../../types/ilocale";
-import { userClient } from "@/libs/apollo-client";
+import { ILocale, ilocaleKeys } from "../../../types";
+import { userClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
