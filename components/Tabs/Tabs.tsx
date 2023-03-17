@@ -4,7 +4,7 @@ import Box, { BoxProps } from "@mui/material/Box";
 import TabPanel from "./TabPanel";
 import TabHeader from "./TabHeader";
 
-export interface TabsProps {
+export interface TabsProps extends BoxProps {
   headers: React.ReactNode[];
   contents: React.ReactNode[];
   contentContainerProps?: BoxProps;
@@ -14,6 +14,7 @@ export const Tabs = ({
   headers,
   contents,
   contentContainerProps,
+  ...props
 }: TabsProps) => {
   const [value, setValue] = useState(0);
 
@@ -22,7 +23,7 @@ export const Tabs = ({
   };
 
   return (
-    <>
+    <Box {...props}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <MuiTabs value={value} onChange={handleChange}>
           {headers.map((header, i) => {
@@ -40,7 +41,7 @@ export const Tabs = ({
           {content}
         </TabPanel>
       ))}
-    </>
+    </Box>
   );
 };
 
