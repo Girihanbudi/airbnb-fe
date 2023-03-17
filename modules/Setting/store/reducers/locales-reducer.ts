@@ -5,13 +5,16 @@ import { fetchLocalesThunk } from "../actions/gql-async-thunk";
 
 export interface ILocalesStore {
   loading: boolean;
-  errors?: Error;
   data: ILocale[] | null;
+  error?: string;
+  errorCode?: string;
+  rejected: boolean;
 }
 
 const initialLocalesStore: ILocalesStore = {
   loading: true,
   data: null,
+  rejected: false,
 };
 
 export const localesSlice = createSlice({
@@ -22,19 +25,21 @@ export const localesSlice = createSlice({
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    // Fetch Locale Reducer
     builder.addCase(fetchLocalesThunk.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(fetchLocalesThunk.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload.data.locales;
-      // state.errors = action.payload.error;
+      state.error = action.payload.error
+        ? action.payload.error.message
+        : undefined;
     });
     builder.addCase(fetchLocalesThunk.rejected, (state) => {
       state.loading = false;
       state.data = null;
-      // state.errors = DefaultError.DEFAULT_SYS_500.errorEn;
+      state.error = DefaultError.DEFAULT_SYS_500.key;
+      state.rejected = true;
     });
   },
 });
