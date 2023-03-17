@@ -3,11 +3,11 @@ import { getCookie } from "cookies-next";
 import { useTranslation } from "next-i18next";
 import { RootState, useAppSelector, useAppDispatch } from "@/store";
 
-import { Typography, Box, Grid, Stack } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 import OptionButton, { OptionButtonLoader } from "@/components/OptionButton";
+import { DefaultError } from "@/components/Error";
 
 import { fetchLocalesThunk } from "../store/actions/gql-async-thunk";
-import { DefaultError } from "@/components/Error";
 
 export const LanguageAndRegion = () => {
   const { t } = useTranslation(["header", "default-error"]);
