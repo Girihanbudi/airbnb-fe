@@ -92,6 +92,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
         "common",
         "header",
         "setting",
+        "default-error",
       ])),
     },
   };
