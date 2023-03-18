@@ -12,7 +12,7 @@ export const fetchCurrencies = async (
   return await userClient.query<Types>({
     query: gql`
       query {
-        locales {
+        currencies {
           ${keys.join("\n")}
         }
       }
