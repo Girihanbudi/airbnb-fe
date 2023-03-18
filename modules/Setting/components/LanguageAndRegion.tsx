@@ -27,7 +27,7 @@ export const LanguageAndRegion = () => {
       return (
         <Grid container spacing={2}>
           {[...Array(skeletonCount)].map((e, i) => (
-            <Grid key={e} item md={2.4} sm={4} xs={6}>
+            <Grid key={`${e}-${i}`} item md={2.4} sm={4} xs={6}>
               <OptionButtonLoader active={i === 0} />
             </Grid>
           ))}
