@@ -6,6 +6,7 @@ import {
   DialogContent,
   Stack,
   Box,
+  Divider,
 } from "@mui/material";
 import Dialog, { DialogProps } from "@mui/material/Dialog";
 import { Slide } from "@/components/Transition";
@@ -13,11 +14,13 @@ import { Slide } from "@/components/Transition";
 import CloseIcon from "@mui/icons-material/Close";
 
 export interface SlideDialogProps extends DialogProps {
+  showDivider?: boolean;
   dialogTitle?: ReactNode;
   handleClose?: () => void;
 }
 
 export const SlideDialog = ({
+  showDivider = false,
   dialogTitle,
   handleClose,
   children,
@@ -50,6 +53,9 @@ export const SlideDialog = ({
           </Box>
         </Stack>
       </DialogTitle>
+
+      {showDivider && <Divider />}
+
       <DialogContent>
         <Box>{children}</Box>
       </DialogContent>
