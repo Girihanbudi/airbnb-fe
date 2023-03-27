@@ -1,5 +1,5 @@
 import ICurrency from "../../types/icurrency";
-import { DefaultError } from "@/common/error-code";
+import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCurrenciesThunk } from "../actions/gql-async-thunk";
 

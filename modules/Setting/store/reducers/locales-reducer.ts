@@ -1,5 +1,5 @@
 import ILocale from "../../types/ilocale";
-import { DefaultError } from "@/common/error-code";
+import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchLocalesThunk } from "../actions/gql-async-thunk";
 
