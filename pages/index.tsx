@@ -4,7 +4,7 @@ import Head from "next/head";
 import Header from "@/layouts/Header";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Box, Grid } from "@mui/material";
-import { PropertyCard } from "@/modules/Property";
+import { PropertyCard } from "@/modules/Property/Components";
 import BestWidth from "@/components/BestWidth";
 
 const Test: NextPage = () => {
@@ -93,6 +93,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
         "header",
         "setting",
         "default-error",
+        "auth",
       ])),
     },
   };
