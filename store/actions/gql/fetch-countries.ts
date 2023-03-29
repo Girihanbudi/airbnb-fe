@@ -3,8 +3,10 @@ import { userClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
-  meta: IPagination;
-  data: ICountry[] | null;
+  countries: {
+    meta: IPagination;
+    data: ICountry[] | null;
+  };
 }
 
 export interface Payload {
