@@ -3,12 +3,14 @@ import { createWrapper } from "next-redux-wrapper";
 import {
   localesReducer,
   currenciesReducer,
-} from "@/modules/Setting/store/reducers";
+  countriesReducer,
+} from "./reducers";
 
 export const store = configureStore({
   reducer: {
     locales: localesReducer,
     currencies: currenciesReducer,
+    countries: countriesReducer,
   },
 });
 // Infer the `RootState` and `AppDispatch` types from the store itself
