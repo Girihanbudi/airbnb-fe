@@ -7,7 +7,7 @@ import { Typography, Box, Grid } from "@mui/material";
 import OptionButton, { OptionButtonLoader } from "@/components/OptionButton";
 import { DefaultError } from "@/components/Error";
 
-import { fetchCurrenciesThunk } from "../store/actions/gql-async-thunk";
+import { fetchCurrenciesThunk } from "@/store/actions/thunk";
 
 export const Currency = () => {
   const { t } = useTranslation(["header", "default-error"]);
@@ -18,7 +18,7 @@ export const Currency = () => {
   // Redux
   const curencies = useAppSelector((state: RootState) => state.currencies);
   useEffect(() => {
-    dispatch(fetchCurrenciesThunk(["name", "symbol", "code"]));
+    dispatch(fetchCurrenciesThunk({ keys: ["name", "symbol", "code"] }));
   }, [dispatch]);
 
   const RenderContent = () => {

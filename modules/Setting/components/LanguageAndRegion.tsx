@@ -7,7 +7,7 @@ import { Typography, Box, Grid } from "@mui/material";
 import OptionButton, { OptionButtonLoader } from "@/components/OptionButton";
 import { DefaultError } from "@/components/Error";
 
-import { fetchLocalesThunk } from "../store/actions/gql-async-thunk";
+import { fetchLocalesThunk } from "@/store/actions/thunk";
 
 export const LanguageAndRegion = () => {
   const { t } = useTranslation(["header", "default-error"]);
@@ -18,7 +18,7 @@ export const LanguageAndRegion = () => {
   // Redux
   const locales = useAppSelector((state: RootState) => state.locales);
   useEffect(() => {
-    dispatch(fetchLocalesThunk(["name", "local", "code"]));
+    dispatch(fetchLocalesThunk({ keys: ["name", "local", "code"] }));
   }, [dispatch]);
 
   const RenderContent = () => {
