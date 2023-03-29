@@ -31,8 +31,8 @@ export const countriesSlice = createSlice({
     });
     builder.addCase(fetchCountriesThunk.fulfilled, (state, action) => {
       state.loading = false;
-      state.data = action.payload.data.data;
-      state.meta = action.payload.data.meta;
+      state.data = action.payload.data.countries.data;
+      state.meta = action.payload.data.countries.meta;
       state.error = action.payload.error
         ? action.payload.error.message
         : undefined;
