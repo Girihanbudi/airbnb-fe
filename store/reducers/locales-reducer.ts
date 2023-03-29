@@ -1,7 +1,7 @@
-import ILocale from "../../types/ilocale";
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchLocalesThunk } from "../actions/gql-async-thunk";
+import { ILocale } from "@/types";
+import { fetchLocalesThunk } from "../actions/thunk/gql-async-thunk";
 
 export interface ILocalesStore {
   loading: boolean;
