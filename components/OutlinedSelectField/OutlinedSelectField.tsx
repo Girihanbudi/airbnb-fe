@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import { FormHelperText, Stack } from "@mui/material";
+import { FormHelperText, MenuProps, Stack } from "@mui/material";
 import InputLabel, { InputLabelProps } from "@mui/material/InputLabel";
 import FormControl, { FormControlProps } from "@mui/material/FormControl";
 import Select, { SelectChangeEvent, SelectProps } from "@mui/material/Select";
@@ -14,6 +14,7 @@ export type OutlinedSelectFieldProps = FormControlProps & {
   label?: string;
   labelProps?: InputLabelProps;
   selectProps?: SelectProps;
+  menuProps?: Partial<MenuProps>;
 };
 
 export const OutlinedSelectField = ({
@@ -25,6 +26,7 @@ export const OutlinedSelectField = ({
   variant = "filled",
   labelProps,
   selectProps,
+  menuProps,
   ...props
 }: OutlinedSelectFieldProps) => {
   const theme = useTheme();
@@ -79,6 +81,13 @@ export const OutlinedSelectField = ({
               : theme.palette.primary.main,
           },
           ...(selectProps ? selectProps.sx : {}),
+        }}
+        MenuProps={{
+          sx: {
+            maxHeight: "300px",
+            ...(menuProps ? menuProps.sx : {}),
+          },
+          ...menuProps,
         }}
       >
         {children}
