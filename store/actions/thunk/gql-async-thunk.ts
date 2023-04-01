@@ -12,6 +12,11 @@ export const fetchCurrenciesThunk = createAsyncThunk(
 );
 
 export const fetchCountriesThunk = createAsyncThunk(
-  "currency/fetchCountries",
+  "country/fetchCountries",
+  fetchCountries
+);
+
+export const fetchMoreCountriesThunk = createAsyncThunk(
+  "country/fetchMoreCountries",
   fetchCountries
 );
