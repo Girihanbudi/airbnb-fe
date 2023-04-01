@@ -1,4 +1,5 @@
 import { NextPage, GetStaticProps } from "next";
+import { useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import Header from "@/layouts/Header";
@@ -9,6 +10,11 @@ import BestWidth from "@/components/BestWidth";
 
 const Test: NextPage = () => {
   const { t } = useTranslation("title");
+
+  useEffect(() => {
+    window.close();
+  }, []);
+
   return (
     <>
       <Head>
