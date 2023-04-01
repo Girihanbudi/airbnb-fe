@@ -1,7 +1,7 @@
 // import { MouseEvent, useState } from "react";
 import Button, { ButtonProps } from "@mui/material/Button";
 
-export const AnimatedGradientButton = (props: ButtonProps) => {
+export const AnimatedGradientButton = ({ sx, ...props }: ButtonProps) => {
   // const [coordinate, setCoordinate] = useState({
   //   x: 0,
   //   y: 0,
@@ -23,7 +23,6 @@ export const AnimatedGradientButton = (props: ButtonProps) => {
       // onMouseMove={onMouseHover}
       fullWidth
       sx={{
-        my: 1,
         py: 1.5,
         textTransform: "none",
         borderRadius: "10px",
@@ -49,6 +48,7 @@ export const AnimatedGradientButton = (props: ButtonProps) => {
         //   width: "200px",
         //   height: "200px",
         // },
+        ...sx,
       }}
       {...props}
     />
