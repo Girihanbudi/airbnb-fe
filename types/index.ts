@@ -7,3 +7,5 @@ export type { IPagination } from "./ipagination";
 export type { ICurrency } from "./icurrency";
 export type { ILocale } from "./ilocale";
 export type { ICountry } from "./icountry";
+
+export { Locale, Currency, IsLoggedIn } from "./cookies";
