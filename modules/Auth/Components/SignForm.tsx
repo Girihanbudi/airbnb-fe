@@ -12,14 +12,15 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import { useTranslation } from "next-i18next";
-import AlignedButtonIcon from "@/components/AlignedButtonIcon";
 import { OutlinedTextField } from "@/components/OutlinedTextField";
 import SlideDialog from "@/components/SlideDialog";
 import AnimatedGradientButton from "@/components/AnimatedGradientButton";
 import OutlinedSelectField from "@/components/OutlinedSelectField";
+import OptionLoginButton from "./OptionLoginButton";
 
 import GoogleIcon from "@mui/icons-material/Google";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 import {
   fetchCountriesThunk,
@@ -123,33 +124,29 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
       </Stack>
       <Divider sx={{ my: 1 }}>{t("continueOr")}</Divider>
       <Stack spacing={1} sx={{ my: 1, pt: 1.5 }}>
-        <a
-          onClick={() => {
-            window.open(
-              `${process.env.NEXT_PUBLIC_BACKEND}/sessions/google`,
-              "Popup",
-              "location,status,scrollbars,resizable,width=600, height=600"
-            );
-            onClose();
-          }}
+        <OptionLoginButton
+          uri="sessions/google"
+          onClose={onClose}
+          Icon={<GoogleIcon sx={{ color: "#ff4000" }} />}
         >
-          <AlignedButtonIcon
-            fullWidth
-            icon={<GoogleIcon sx={{ color: "#ff4000" }} />}
-            sx={{ py: 1.5 }}
-          >
-            {" "}
-            {t("continueWithGoogle")}
-          </AlignedButtonIcon>
-        </a>
+          {t("continueWithGoogle")}
+        </OptionLoginButton>
 
-        <AlignedButtonIcon
-          fullWidth
-          icon={<MailOutlineOutlinedIcon sx={{ color: "#000000" }} />}
-          sx={{ py: 1.5 }}
+        <OptionLoginButton
+          uri="sessions/facebook"
+          onClose={onClose}
+          Icon={<FacebookIcon sx={{ color: "#4267B2" }} />}
+        >
+          {t("continueWithFacebook")}
+        </OptionLoginButton>
+
+        <OptionLoginButton
+          uri="sessions/email"
+          onClose={onClose}
+          Icon={<MailOutlineOutlinedIcon sx={{ color: "#000000" }} />}
         >
           {t("continueWithEmail")}
-        </AlignedButtonIcon>
+        </OptionLoginButton>
       </Stack>
     </SlideDialog>
   );
