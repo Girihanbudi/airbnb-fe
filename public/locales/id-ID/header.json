@@ -9,7 +9,13 @@
   "buttonGuest": "Tambahkan tamu",
   "buttonFilter": "Filter",
   "signUp": "Daftar",
-  "login": "Masuk",
+  "logIn": "Masuk",
+  "logOut": "Keluar",
+  "account": "Akun",
   "hostAnExperience": "Adakan pengalaman",
+  "messages": "Pesan",
+  "trips": "Perjalanan",
+  "wishlists": "Favorit",
+  "referAHost": "Rekomendasikan tuan rumah",
   "help": "Bantuan"
 }

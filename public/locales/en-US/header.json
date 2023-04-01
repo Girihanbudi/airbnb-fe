@@ -9,7 +9,13 @@
   "buttonGuest": "Add guest",
   "buttonFilter": "Filter",
   "signUp": "Sign up",
-  "login": "Log in",
+  "logIn": "Log in",
+  "logOut": "Log out",
+  "account": "Account",
   "hostAnExperience": "Host an experience",
+  "messages": "Messages",
+  "trips": "Trips",
+  "wishlists": "Wishlists",
+  "referAHost": "Refer a host",
   "help": "Help"
 }
