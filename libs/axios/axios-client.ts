@@ -1,9 +1,9 @@
 import { StdResponse, StdError, ServerErrorResponseAPI } from "@/common";
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
 
-const defaultAxios = axios.create();
-defaultAxios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND!;
-defaultAxios.defaults.timeout = 2500;
+const axiosClient = axios.create();
+axiosClient.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND!;
+axiosClient.defaults.timeout = 2500;
 
 export const axiosFetch = async (
   config: AxiosRequestConfig
