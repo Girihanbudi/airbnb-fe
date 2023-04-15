@@ -4,6 +4,7 @@ import {
   localesReducer,
   currenciesReducer,
   countriesReducer,
+  userReducer,
 } from "./reducers";
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     locales: localesReducer,
     currencies: currenciesReducer,
     countries: countriesReducer,
+    user: userReducer,
   },
 });
 // Infer the `RootState` and `AppDispatch` types from the store itself
