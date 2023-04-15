@@ -1,5 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchLocales, fetchCurrencies, fetchCountries } from "../gql";
+import {
+  fetchLocales,
+  fetchCurrencies,
+  fetchCountries,
+  fetchUserInfo,
+} from "../gql";
 
 export const fetchLocalesThunk = createAsyncThunk(
   "locale/fetchLocales",
@@ -19,4 +24,9 @@ export const fetchCountriesThunk = createAsyncThunk(
 export const fetchMoreCountriesThunk = createAsyncThunk(
   "country/fetchMoreCountries",
   fetchCountries
+);
+
+export const fetchUserInfoThunk = createAsyncThunk(
+  "user/fetchUserInfo",
+  fetchUserInfo
 );
