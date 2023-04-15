@@ -19,7 +19,11 @@ import AccountActionList from "@/modules/Account/Components/AccountActionList";
 import Setting from "@/modules/Setting/Components/Setting";
 import SearchBar from "./SearchBar";
 
-const Header = () => {
+export interface HeaderProps {
+  showCategories?: boolean;
+}
+
+const Header = ({ showCategories = true }: HeaderProps) => {
   const { t } = useTranslation("header");
   const theme = useTheme();
   const greaterThanMid = useMediaQuery(theme.breakpoints.up("md"));
@@ -111,20 +115,24 @@ const Header = () => {
               </Box>
             </BestWidth>
           </Box>
-          <Divider />
-          <Box
-            sx={{
-              p: 1,
-              mt: 2,
-              mb: -1,
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <BestWidth>
-              <Category categories={categories} />
-            </BestWidth>
-          </Box>
+          {showCategories && (
+            <>
+              <Divider />
+              <Box
+                sx={{
+                  p: 1,
+                  mt: 2,
+                  mb: -1,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <BestWidth>
+                  <Category categories={categories} />
+                </BestWidth>
+              </Box>
+            </>
+          )}
         </AppBar>
       </ElevationScroll>
     </>
