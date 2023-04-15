@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState, MouseEvent } from "react";
 import { useTranslation } from "next-i18next";
 import { getCookie } from "cookies-next";
@@ -34,7 +35,7 @@ const AccountView = () => {
     setIsSignFormOpen(false);
   };
 
-  const loggedActionContent = [
+  const unloggedActionContent = [
     <MenuItem key={t("signUp")} onClick={openSignForm} sx={{ fontWeight: 600 }}>
       {t("signUp")}
     </MenuItem>,
@@ -53,7 +54,7 @@ const AccountView = () => {
     </MenuItem>,
   ];
 
-  const unloggedActionContent = [
+  const loggedActionContent = [
     <MenuItem
       key={t("messages")}
       onClick={openSignForm}
@@ -82,7 +83,7 @@ const AccountView = () => {
       {t("referAHost")}
     </MenuItem>,
     <MenuItem key={t("account")} onClick={handleClose}>
-      {t("account")}
+      <Link href="/account-settings">{t("account")}</Link>
     </MenuItem>,
     <Divider key={"divider-3"} />,
     <MenuItem key={t("help")} onClick={handleClose}>
@@ -124,7 +125,7 @@ const AccountView = () => {
         }}
         sx={{ mt: 1 }}
       >
-        {!isLoggedIn ? loggedActionContent : unloggedActionContent}
+        {isLoggedIn ? loggedActionContent : unloggedActionContent}
       </CardMenu>
 
       <SignForm open={isSignFormOpen} onClose={closeSignForm} />
