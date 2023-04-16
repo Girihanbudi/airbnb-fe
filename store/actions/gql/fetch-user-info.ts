@@ -1,16 +1,16 @@
-import { ILocale, IUser, ilocaleKeys } from "@/types";
+import { IUser, iuserKeys } from "@/types";
 import { userClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
-  userInfo: IUser | null;
+  user: IUser | null;
 }
 
 export interface Payload {
-  keys: (keyof ILocale)[];
+  keys: (keyof IUser)[];
 }
 
-export const fetchUserInfo = async ({ keys = ilocaleKeys }: Payload) => {
+export const fetchUserInfo = async ({ keys = iuserKeys }: Payload) => {
   return await userClient.query<Types>({
     query: gql`
       query {

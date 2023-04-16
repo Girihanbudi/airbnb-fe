@@ -3,4 +3,5 @@ export {
   fetchCurrenciesThunk,
   fetchCountriesThunk,
   fetchMoreCountriesThunk,
+  fetchUserInfoThunk,
 } from "./gql-async-thunk";

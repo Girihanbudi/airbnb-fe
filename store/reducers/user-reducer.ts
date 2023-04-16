@@ -30,7 +30,7 @@ export const userInfoSlice = createSlice({
     });
     builder.addCase(fetchUserInfoThunk.fulfilled, (state, action) => {
       state.loading = false;
-      state.data = action.payload.data.userInfo;
+      state.data = action.payload.data.user;
       state.error = action.payload.error
         ? action.payload.error.message
         : undefined;
