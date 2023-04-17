@@ -1,7 +1,7 @@
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "@/types";
-import { fetchUserInfoThunk } from "../actions/thunk/gql-async-thunk";
+import { fetchUserInfoThunk, signOutThunk } from "../actions/thunk";
 
 export interface IUserInfoStore {
   loading: boolean;
@@ -25,6 +25,7 @@ export const userInfoSlice = createSlice({
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
+    // fetch info
     builder.addCase(fetchUserInfoThunk.pending, (state) => {
       state.loading = true;
     });
@@ -40,6 +41,14 @@ export const userInfoSlice = createSlice({
       state.data = null;
       state.error = DefaultError.DEFAULT_SYS_500.key;
       state.rejected = true;
+    });
+
+    // signout
+    builder.addCase(signOutThunk.fulfilled, (state, action) => {
+      state.loading = false;
+      const { error } = action.payload.data;
+      state.data = null;
+      state.error = error ? error.message : undefined;
     });
   },
 });
