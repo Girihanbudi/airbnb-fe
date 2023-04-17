@@ -7,12 +7,12 @@ import PlainButton from "@/components/PlainButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-export interface NavButtonProps extends ButtonProps {
+export interface CarouselNavButtonProps extends ButtonProps {
   slideLength: number;
   hovered?: boolean;
 }
 
-export const NavButton = ({ sx, ...props }: ButtonProps) => (
+export const CarouselNavButton = ({ sx, ...props }: ButtonProps) => (
   <PlainButton
     color="white"
     variant="contained"
@@ -21,12 +21,12 @@ export const NavButton = ({ sx, ...props }: ButtonProps) => (
   />
 );
 
-export const NavButtonPrev = ({
+export const CarouselNavButtonPrev = ({
   slideLength,
   hovered = false,
   sx,
   ...props
-}: NavButtonProps) => {
+}: CarouselNavButtonProps) => {
   const swiper = useSwiper();
   const [slideConfig, setSlideConfig] = useState({
     isBeginning: true,
@@ -41,7 +41,7 @@ export const NavButtonPrev = ({
 
   return (
     <>
-      <NavButton
+      <CarouselNavButton
         disabled={!hovered || slideConfig.isBeginning}
         onClick={() => {
           swiper.slidePrev();
@@ -54,17 +54,17 @@ export const NavButtonPrev = ({
         {...props}
       >
         <ArrowBackIosNewIcon sx={{ fontSize: "15px" }} />
-      </NavButton>
+      </CarouselNavButton>
     </>
   );
 };
 
-export const NavButtonNext = ({
+export const CarouselNavButtonNext = ({
   slideLength,
   hovered = false,
   sx,
   ...props
-}: NavButtonProps) => {
+}: CarouselNavButtonProps) => {
   const swiper = useSwiper();
   const [slideConfig, setSlideConfig] = useState({
     isBeginning: true,
@@ -79,7 +79,7 @@ export const NavButtonNext = ({
 
   return (
     <>
-      <NavButton
+      <CarouselNavButton
         disabled={!hovered || slideConfig.isEnd}
         onClick={() => {
           swiper.slideNext();
@@ -92,7 +92,7 @@ export const NavButtonNext = ({
         {...props}
       >
         <ArrowForwardIosIcon sx={{ fontSize: "15px" }} />
-      </NavButton>
+      </CarouselNavButton>
     </>
   );
 };

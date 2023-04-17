@@ -1,2 +1,1 @@
-export { default } from "./PlainButton";
-export { PlainButton } from "./PlainButton";
+export { default, PlainButton } from "./PlainButton";

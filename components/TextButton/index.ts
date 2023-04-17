@@ -1,2 +1,1 @@
-export { default } from "./TextButton";
-export { TextButton } from "./TextButton";
+export { default, TextButton } from "./TextButton";

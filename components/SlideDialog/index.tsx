@@ -1,2 +1,2 @@
-export { default } from "./SlideDialog";
-export { SlideDialog } from "./SlideDialog";
+export { default, SlideDialog } from "./SlideDialog";
+export type { SlideDialogProps } from "./SlideDialog";

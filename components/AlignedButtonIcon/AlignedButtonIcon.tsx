@@ -2,7 +2,7 @@ import React from "react";
 import Button, { ButtonProps } from "@mui/material/Button";
 import { Box } from "@mui/material";
 
-interface AlignedButtonIconProps extends ButtonProps {
+export interface AlignedButtonIconProps extends ButtonProps {
   icon: React.ReactNode;
   children?: React.ReactNode;
 }
@@ -12,7 +12,7 @@ interface AlignedButtonIconProps extends ButtonProps {
  * Button that contain icon in the left side and text | other react node in the middle
  * e.g. Login with facebook | Login with google
  */
-const AlignedButtonIcon = ({
+export const AlignedButtonIcon = ({
   sx,
   icon,
   children,

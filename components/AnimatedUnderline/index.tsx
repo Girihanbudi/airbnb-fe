@@ -1,2 +1,2 @@
-export { default } from "./AnimatedUnderline";
-export { AnimatedUnderline } from "./AnimatedUnderline";
+export { default, AnimatedUnderline } from "./AnimatedUnderline";
+export type { AnimatedUnderlineProps } from "./AnimatedUnderline";

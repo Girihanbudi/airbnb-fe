@@ -1,1 +1,1 @@
-export { default } from "./AnimatedGradientButton";
+export { default, AnimatedGradientButton } from "./AnimatedGradientButton";

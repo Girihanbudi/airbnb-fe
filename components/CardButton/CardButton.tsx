@@ -2,9 +2,7 @@ import { CardActionArea, CardContent } from "@mui/material";
 import { CardProps } from "@mui/material/Card";
 import Card from "./Card";
 
-export interface CardButtonProps extends CardProps {}
-
-export const CardButton = ({ children, ...cardProps }: CardButtonProps) => {
+export const CardButton = ({ children, ...cardProps }: CardProps) => {
   return (
     <Card elevation={0} {...cardProps}>
       <CardActionArea

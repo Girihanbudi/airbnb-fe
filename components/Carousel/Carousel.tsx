@@ -4,7 +4,7 @@ import Image from "next/image";
 import Box, { BoxProps } from "@mui/material/Box";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper";
-import { NavButtonPrev, NavButtonNext } from "./NavButton";
+import { CarouselNavButtonPrev, CarouselNavButtonNext } from "./NavButton";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -76,12 +76,12 @@ export const Carousel = ({
           </SwiperSlide>
         ))}
 
-        <NavButtonPrev
+        <CarouselNavButtonPrev
           slideLength={images.length}
           hovered={hovered}
           sx={{ position: "absolute", zIndex: 1, top: "150px", left: 5 }}
         />
-        <NavButtonNext
+        <CarouselNavButtonNext
           slideLength={images.length}
           hovered={hovered}
           sx={{ position: "absolute", zIndex: 1, top: "150px", right: 5 }}

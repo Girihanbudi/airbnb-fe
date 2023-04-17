@@ -1,6 +1,6 @@
 import { Menu, MenuProps, styled } from "@mui/material";
 
-const CardMenu = styled((props: MenuProps) => (
+export const CardMenu = styled((props: MenuProps) => (
   <Menu
     elevation={0}
     anchorOrigin={{

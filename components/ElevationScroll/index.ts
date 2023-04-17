@@ -1,3 +1,2 @@
-export { default } from "./ElevationScroll";
-export { ElevationScroll } from "./ElevationScroll";
+export { default, ElevationScroll } from "./ElevationScroll";
 export type { ElevationScrollProps } from "./ElevationScroll";

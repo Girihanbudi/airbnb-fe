@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import Box, { BoxProps } from "@mui/material/Box";
 import { Stack, SvgIconTypeMap, Typography } from "@mui/material";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";

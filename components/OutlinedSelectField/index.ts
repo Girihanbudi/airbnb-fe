@@ -1,2 +1,2 @@
-export { default } from "./OutlinedSelectField";
-export type { OutlinedSelectField } from "./OutlinedSelectField";
+export { default, OutlinedSelectField } from "./OutlinedSelectField";
+export type { OutlinedSelectFieldProps } from "./OutlinedSelectField";

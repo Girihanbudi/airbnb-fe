@@ -1,8 +1,4 @@
-import { useState, useRef } from "react";
 import { useTheme } from "@mui/material/styles";
-
-import { Stack } from "@mui/material";
-
 import Box, { BoxProps } from "@mui/material/Box";
 
 export interface AnimatedUnderlineProps extends BoxProps {

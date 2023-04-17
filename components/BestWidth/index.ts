@@ -1,2 +1,1 @@
-export { default } from "./BestWidth";
-export { BestWidth } from "./BestWidth";
+export { default, BestWidth } from "./BestWidth";
