@@ -2,18 +2,23 @@ import Link from "next/link";
 import { useState, MouseEvent } from "react";
 import { useTranslation } from "next-i18next";
 import { getCookie } from "cookies-next";
+import { useAppDispatch } from "@/store";
 
 import { MenuItem, Divider, Stack } from "@mui/material";
-import CardButton from "@/components/CardButton";
-import CardMenu from "@/components/CardMenu";
+import { CardButton, CardMenu, PlainLink } from "@/components";
+
 import { SignForm } from "@/modules/Auth/Components";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+
 import { IsLoggedIn } from "@/types";
+import { signOutThunk } from "@/store/actions/thunk";
 
 const AccountView = () => {
   const { t } = useTranslation("header");
+  const dispatch = useAppDispatch();
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: MouseEvent<HTMLElement>) => {
@@ -24,6 +29,10 @@ const AccountView = () => {
   };
 
   const isLoggedIn = getCookie(IsLoggedIn);
+
+  const signOut = () => {
+    dispatch(signOutThunk());
+  };
 
   // sign form
   const [isSignFormOpen, setIsSignFormOpen] = useState<boolean>(false);
@@ -89,7 +98,13 @@ const AccountView = () => {
     <MenuItem key={t("help")} onClick={handleClose}>
       {t("help")}
     </MenuItem>,
-    <MenuItem key={t("logOut")} onClick={handleClose}>
+    <MenuItem
+      key={t("logOut")}
+      onClick={() => {
+        handleClose();
+        signOut();
+      }}
+    >
       {t("logOut")}
     </MenuItem>,
   ];
