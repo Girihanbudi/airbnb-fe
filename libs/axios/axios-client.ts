@@ -1,18 +1,23 @@
 import { StdResponse, StdError, ServerErrorResponseAPI } from "@/common";
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
 
-const axiosClient = axios.create();
+export const axiosClient = axios.create();
 axiosClient.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND!;
 axiosClient.defaults.timeout = 2500;
 
+export interface ResponseProps {
+  status: number;
+  data: StdResponse;
+}
+
 export const axiosFetch = async (
   config: AxiosRequestConfig
-): Promise<[number, StdResponse]> => {
+): Promise<ResponseProps> => {
   try {
-    const res = await axios(config);
+    const res = await axiosClient(config);
 
     if (res.status < 300) {
-      return [res.status, res.data];
+      return { status: res.status, data: res.data };
     }
   } catch (e: any) {
     const error = e as AxiosError;
@@ -21,17 +26,17 @@ export const axiosFetch = async (
       let res: StdResponse = {
         error: data,
       };
-      return [error.response.status, res];
+      return { status: error.response.status, data: res };
     }
   }
   let internalResErr: StdResponse = {
     error: ServerErrorResponseAPI,
   };
 
-  return [500, internalResErr];
+  return { status: 500, data: internalResErr };
 };
 
 export const axiosFetcher = (config: AxiosRequestConfig) =>
   axios(config).then((res) => res.data.data);
 
-export default defaultAxios;
+export default axiosClient;
