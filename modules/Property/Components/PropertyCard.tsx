@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material/styles";
 
 import { Box, Stack, Typography } from "@mui/material";
-import Carousel from "@/components/Carousel";
+import { Carousel } from "@/components";
 
 import StarIcon from "@mui/icons-material/Star";
 import FavoriteIcon from "@mui/icons-material/Favorite";

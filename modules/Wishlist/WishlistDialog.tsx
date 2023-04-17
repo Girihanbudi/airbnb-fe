@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import SlideDialog from "@/components/SlideDialog"
+import { SlideDialog } from "@/components";
 
 export const WishlistDialog = () => {
   const [open, setOpen] = useState(false);
@@ -13,11 +13,7 @@ export const WishlistDialog = () => {
     setOpen(false);
   };
 
-  return(
-    <SlideDialog open={open} handleClose={handleClose}>
+  return <SlideDialog open={open} handleClose={handleClose}></SlideDialog>;
+};
 
-    </SlideDialog>
-  )
-}
-
-export default WishlistDialog
+export default WishlistDialog;

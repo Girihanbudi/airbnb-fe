@@ -6,10 +6,9 @@ import { Box, Stack, Typography, Button } from "@mui/material";
 import CardButton, { Card } from "@/components/CardButton";
 
 import SearchIcon from "@mui/icons-material/Search";
-import TextButton from "@/components/TextButton";
-import UnderlinedButton from "@/components/UnderlinedButton";
+import { TextButton, UnderlinedButton } from "@/components";
 
-const SearchFilter = () => {
+export const SearchFilter = () => {
   return (
     <>
       <Stack direction="row" spacing={2}>
@@ -37,7 +36,7 @@ const SearchFilter = () => {
   );
 };
 
-const SearchBar = () => {
+export const SearchBar = () => {
   const { t } = useTranslation("header");
   const theme = useTheme();
 

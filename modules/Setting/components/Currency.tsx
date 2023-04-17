@@ -4,8 +4,7 @@ import { useTranslation } from "next-i18next";
 import { RootState, useAppSelector, useAppDispatch } from "@/store";
 
 import { Typography, Box, Grid } from "@mui/material";
-import OptionButton, { OptionButtonLoader } from "@/components/OptionButton";
-import { DefaultError } from "@/components/Error";
+import { OptionButton, OptionButtonLoader, DefaultError } from "@/components";
 
 import { fetchCurrenciesThunk } from "@/store/actions/thunk";
 

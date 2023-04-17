@@ -1,7 +1,7 @@
 import { useState, Fragment } from "react";
 import Image from "next/image";
 import { Stack, Icon } from "@mui/material";
-import UnderlinedText from "@/components/UnderlinedText";
+import { UnderlinedText } from "@/components";
 
 export interface CategoryTumbnail {
   src: string;

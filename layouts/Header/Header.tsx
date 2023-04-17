@@ -12,8 +12,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
-import BestWidth from "@/components/BestWidth";
-import ElevationScroll from "@/components/ElevationScroll";
+import { BestWidth, ElevationScroll } from "@/components";
 
 import AccountActionList from "@/modules/Account/Components/AccountActionList";
 import Setting from "@/modules/Setting/Components/Setting";
@@ -23,7 +22,7 @@ export interface HeaderProps {
   showCategories?: boolean;
 }
 
-const Header = ({ showCategories = true }: HeaderProps) => {
+export const Header = ({ showCategories = true }: HeaderProps) => {
   const { t } = useTranslation("header");
   const theme = useTheme();
   const greaterThanMid = useMediaQuery(theme.breakpoints.up("md"));

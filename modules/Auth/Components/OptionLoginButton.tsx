@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import AlignedButtonIcon from "@/components/AlignedButtonIcon";
+import { AlignedButtonIcon } from "@/components";
 
 export interface OptionLoginButton {
   uri: string;

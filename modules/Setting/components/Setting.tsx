@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "next-i18next";
 
 import { IconButton } from "@mui/material";
-import SlideDialog from "@/components/SlideDialog";
-import Tabs from "@/components/Tabs";
+import { Tabs, SlideDialog } from "@/components";
 import Currency from "./Currency";
 import LanguageAndRegion from "./LanguageAndRegion";
 
