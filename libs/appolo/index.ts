@@ -1,1 +1,1 @@
-export { userClient } from "./apollo-client";
+export { authClient } from "./apollo-client";

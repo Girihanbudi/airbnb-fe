@@ -1,5 +1,5 @@
 import { ILocale, ilocaleKeys } from "@/types";
-import { userClient } from "@/libs/appolo";
+import { authClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
@@ -11,7 +11,7 @@ export interface Payload {
 }
 
 export const fetchLocales = async ({ keys = ilocaleKeys }: Payload) => {
-  return await userClient.query<Types>({
+  return await authClient.query<Types>({
     query: gql`
       query {
         locales {
