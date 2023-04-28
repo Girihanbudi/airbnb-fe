@@ -4,11 +4,11 @@ module.exports = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'id'],
+    localeDetection: false,
   },
   fallbackLng: {
     default: ['en'],
     'id': ['en'],
   },
-  localeDetection: false,
   nonExplicitSupportedLngs: true,
 }
