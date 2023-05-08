@@ -4,6 +4,7 @@ import {
   fetchCurrencies,
   fetchCountries,
   fetchUserInfo,
+  fetchPropertyTypes,
 } from "../gql";
 
 export const fetchLocalesThunk = createAsyncThunk(
@@ -29,4 +30,9 @@ export const fetchMoreCountriesThunk = createAsyncThunk(
 export const fetchUserInfoThunk = createAsyncThunk(
   "user/fetchUserInfo",
   fetchUserInfo
+);
+
+export const fetchPropertyTypesInfoThunk = createAsyncThunk(
+  "property/fetchPropertTypes",
+  fetchPropertyTypes
 );
