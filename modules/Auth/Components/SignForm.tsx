@@ -125,7 +125,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
       <Divider sx={{ my: 1 }}>{t("continueOr")}</Divider>
       <Stack spacing={1} sx={{ my: 1, pt: 1.5 }}>
         <OptionLoginButton
-          uri="sessions/google"
+          uri="/auth/sessions/google"
           onClose={onClose}
           Icon={<GoogleIcon sx={{ color: "#ff4000" }} />}
         >
@@ -133,7 +133,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
         </OptionLoginButton>
 
         <OptionLoginButton
-          uri="sessions/facebook"
+          uri="/auth/sessions/facebook"
           onClose={onClose}
           Icon={<FacebookIcon sx={{ color: "#4267B2" }} />}
         >
@@ -141,7 +141,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
         </OptionLoginButton>
 
         <OptionLoginButton
-          uri="sessions/email"
+          uri="/auth/sessions/email"
           onClose={onClose}
           Icon={<MailOutlineOutlinedIcon sx={{ color: "#000000" }} />}
         >
