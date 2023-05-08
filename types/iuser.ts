@@ -1,5 +1,5 @@
 import { IAccount } from "./iaccount";
-import { IUserDefaultSetting } from "./iuserdefaultsetting";
+import { IUserDefaultSetting } from "./iuser-default-setting";
 
 export interface IUser {
   firstName: string;
