@@ -1,6 +1,6 @@
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
-import { IPagination, ICountry, defaultPagination } from "@/types";
+import { IPagination, ICountry } from "@/types";
 import {
   fetchCountriesThunk,
   fetchMoreCountriesThunk,
