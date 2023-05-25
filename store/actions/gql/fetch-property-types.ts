@@ -4,7 +4,7 @@ import {
   ipropertyTypeKeys,
   ipaginationKeys,
 } from "@/types";
-import { authClient } from "@/libs/appolo";
+import { propertyClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
@@ -25,7 +25,7 @@ export const fetchPropertyTypes = async ({
   page = 1,
   limit = 25,
 }: Payload) => {
-  return await authClient.query<Types>({
+  return await propertyClient.query<Types>({
     query: gql`
       query {
         propertyTypes(page: ${page} limit: ${limit}) {

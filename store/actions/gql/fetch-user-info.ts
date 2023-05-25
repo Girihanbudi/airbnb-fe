@@ -1,5 +1,5 @@
 import { IUser, iuserKeys } from "@/types";
-import { authClient } from "@/libs/appolo";
+import { userClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
@@ -11,7 +11,7 @@ export interface Payload {
 }
 
 export const fetchUserInfo = async ({ keys = iuserKeys }: Payload) => {
-  return await authClient.query<Types>({
+  return await userClient.query<Types>({
     query: gql`
       query {
         user {

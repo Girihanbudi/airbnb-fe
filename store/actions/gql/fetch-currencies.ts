@@ -1,5 +1,5 @@
 import { ICurrency, icurrencyKeys } from "@/types";
-import { authClient } from "@/libs/appolo";
+import { userClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
@@ -11,7 +11,7 @@ export interface Payload {
 }
 
 export const fetchCurrencies = async ({ keys = icurrencyKeys }: Payload) => {
-  return await authClient.query<Types>({
+  return await userClient.query<Types>({
     query: gql`
       query {
         currencies {

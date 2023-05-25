@@ -1,5 +1,5 @@
 import { IPagination, ICountry, icountryKeys, ipaginationKeys } from "@/types";
-import { authClient } from "@/libs/appolo";
+import { userClient } from "@/libs/appolo";
 import { gql } from "@apollo/client";
 
 interface Types {
@@ -20,7 +20,7 @@ export const fetchCountries = async ({
   page = 1,
   limit = 25,
 }: Payload) => {
-  return await authClient.query<Types>({
+  return await userClient.query<Types>({
     query: gql`
       query {
         countries(page: ${page} limit: ${limit}) {
