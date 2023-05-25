@@ -10,3 +10,23 @@ export const authClient = new ApolloClient({
   cache: new InMemoryCache(),
   credentials: "include",
 });
+
+export const userClient = new ApolloClient({
+  link: new HttpLink({
+    uri: `${process.env.NEXT_PUBLIC_BACKEND}/user/graph`,
+    useGETForQueries: true,
+    credentials: "include",
+  }),
+  cache: new InMemoryCache(),
+  credentials: "include",
+});
+
+export const propertyClient = new ApolloClient({
+  link: new HttpLink({
+    uri: `${process.env.NEXT_PUBLIC_BACKEND}/property/graph`,
+    useGETForQueries: true,
+    credentials: "include",
+  }),
+  cache: new InMemoryCache(),
+  credentials: "include",
+});
