@@ -5,6 +5,9 @@ import {
   currenciesReducer,
   countriesReducer,
   userReducer,
+  propertyTypesReducer,
+  cookieLocaleReducer,
+  cookieCurrencyReducer,
 } from "./reducers";
 
 export const store = configureStore({
@@ -13,6 +16,10 @@ export const store = configureStore({
     currencies: currenciesReducer,
     countries: countriesReducer,
     user: userReducer,
+    propertyTypes: propertyTypesReducer,
+
+    cookieLocale: cookieLocaleReducer,
+    cookieCurrency: cookieCurrencyReducer,
   },
 });
 // Infer the `RootState` and `AppDispatch` types from the store itself
