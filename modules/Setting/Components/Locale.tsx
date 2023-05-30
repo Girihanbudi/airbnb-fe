@@ -1,24 +1,26 @@
 import { useEffect } from "react";
-import { getCookie } from "cookies-next";
 import { useTranslation } from "next-i18next";
 import { RootState, useAppSelector, useAppDispatch } from "@/store";
 
 import { Typography, Box, Grid } from "@mui/material";
 import { OptionButton, OptionButtonLoader, DefaultError } from "@/components";
 
-import { fetchLocalesThunk } from "@/store/actions/thunk";
+import { fetchLocalesThunk, changeLocaleThunk } from "@/store/actions/thunk";
 
-export const LanguageAndRegion = () => {
+export const Locale = () => {
   const { t } = useTranslation(["header", "default-error"]);
   const dispatch = useAppDispatch();
 
-  const currentLocale = getCookie("locale");
-
   // Redux
+  const cookieLocale = useAppSelector((state: RootState) => state.cookieLocale);
   const locales = useAppSelector((state: RootState) => state.locales);
   useEffect(() => {
     dispatch(fetchLocalesThunk({ keys: ["name", "local", "code"] }));
   }, [dispatch]);
+
+  const onSelectLocale = async (code: string) => {
+    dispatch(changeLocaleThunk(code));
+  };
 
   const RenderContent = () => {
     if (locales.loading) {
@@ -38,9 +40,10 @@ export const LanguageAndRegion = () => {
           {locales.data.map((locale, i) => (
             <Grid key={i} item md={2.4} sm={4} xs={6}>
               <OptionButton
-                active={locale.code === currentLocale}
+                active={locale.code === cookieLocale.current}
                 mainText={locale.local}
                 subText={locale.name}
+                onClick={() => onSelectLocale(locale.code)}
               />
             </Grid>
           ))}
@@ -65,4 +68,4 @@ export const LanguageAndRegion = () => {
   );
 };
 
-export default LanguageAndRegion;
+export default Locale;
