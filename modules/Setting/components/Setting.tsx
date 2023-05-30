@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next";
 import { IconButton } from "@mui/material";
 import { Tabs, SlideDialog } from "@/components";
 import Currency from "./Currency";
-import LanguageAndRegion from "./LanguageAndRegion";
+import Locale from "./Locale";
 
 import LanguageIcon from "@mui/icons-material/Language";
 
@@ -22,7 +22,7 @@ export const Setting = () => {
   };
 
   const tabHeaders = [t("tabLocale"), t("tabCurrency")];
-  const tabContents = [<LanguageAndRegion key={0} />, <Currency key={1} />];
+  const tabContents = [<Locale key={0} />, <Currency key={1} />];
 
   return (
     <>
