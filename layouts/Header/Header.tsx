@@ -1,7 +1,7 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
+
 import { useTheme } from "@mui/material/styles";
 import Category, { CategoryTumbnail } from "./Category";
-
 import {
   AppBar,
   Stack,
@@ -23,14 +23,10 @@ export interface HeaderProps {
 }
 
 export const Header = ({ showCategories = true }: HeaderProps) => {
-  const { t } = useTranslation("header");
+  const { t } = useTranslation();
+
   const theme = useTheme();
   const greaterThanMid = useMediaQuery(theme.breakpoints.up("md"));
-  const categories: CategoryTumbnail[] = [
-    { src: "/icons/firebase.svg", title: "Firebase", active: true },
-    { src: "/icons/firebase.svg", title: "Firebase 2", active: false },
-    { src: "/icons/firebase.svg", title: "Firebase 3", active: false },
-  ];
 
   return (
     <>
@@ -101,7 +97,7 @@ export const Header = ({ showCategories = true }: HeaderProps) => {
                         fontWeight: "500",
                       }}
                     >
-                      {t("airbnbSetup")}
+                      {t("txtAirbnbSetup")}
                     </Button>
                     <Box>
                       <Setting />
@@ -127,7 +123,7 @@ export const Header = ({ showCategories = true }: HeaderProps) => {
                 }}
               >
                 <BestWidth>
-                  <Category categories={categories} />
+                  <Category />
                 </BestWidth>
               </Box>
             </>
