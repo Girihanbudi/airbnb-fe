@@ -1,3 +1,4 @@
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 import {
@@ -12,14 +13,14 @@ import {
 
 export const store = configureStore({
   reducer: {
+    cookieLocale: cookieLocaleReducer,
+    cookieCurrency: cookieCurrencyReducer,
+
     locales: localesReducer,
     currencies: currenciesReducer,
     countries: countriesReducer,
     user: userReducer,
     propertyTypes: propertyTypesReducer,
-
-    cookieLocale: cookieLocaleReducer,
-    cookieCurrency: cookieCurrencyReducer,
   },
 });
 // Infer the `RootState` and `AppDispatch` types from the store itself
@@ -28,7 +29,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 // app/hooks.ts
 
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+export * from "./reducers";
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = () => useDispatch<AppDispatch>();
