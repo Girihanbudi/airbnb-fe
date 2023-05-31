@@ -1,6 +1,7 @@
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { IPagination, ICountry } from "@/types";
+import { RootState } from "..";
 import {
   fetchCountriesThunk,
   fetchMoreCountriesThunk,
@@ -74,4 +75,5 @@ export const countriesSlice = createSlice({
   },
 });
 
+export const countriesSelector = (state: RootState) => state.countries;
 export default countriesSlice.reducer;

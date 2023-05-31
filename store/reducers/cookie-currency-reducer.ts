@@ -1,6 +1,7 @@
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { CookieValueTypes, getCookie } from "cookies-next";
+import { RootState } from "..";
 import { changeCurrencyThunk } from "../actions/thunk/rest-async-thunk";
 
 export interface ICookieCurrencyStore {
@@ -43,4 +44,6 @@ export const cookieCurrencySlice = createSlice({
   },
 });
 
+export const cookieCurrencySelector = (state: RootState) =>
+  state.cookieCurrency;
 export default cookieCurrencySlice.reducer;

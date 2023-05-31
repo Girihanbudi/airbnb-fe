@@ -1,6 +1,7 @@
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { ICurrency } from "@/types";
+import { RootState } from "..";
 import { fetchCurrenciesThunk } from "../actions/thunk/gql-async-thunk";
 
 export interface ICurrenciesStore {
@@ -44,4 +45,5 @@ export const currenciesSlice = createSlice({
   },
 });
 
+export const currenciesSelector = (state: RootState) => state.currencies;
 export default currenciesSlice.reducer;

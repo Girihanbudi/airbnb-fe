@@ -2,6 +2,7 @@ import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { ILocale } from "@/types";
 import { fetchLocalesThunk } from "../actions/thunk/gql-async-thunk";
+import { RootState } from "..";
 
 export interface ILocalesStore {
   loading: boolean;
@@ -44,4 +45,5 @@ export const localesSlice = createSlice({
   },
 });
 
+export const localesSelector = (state: RootState) => state.locales;
 export default localesSlice.reducer;

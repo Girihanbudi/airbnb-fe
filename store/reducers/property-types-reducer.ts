@@ -1,6 +1,7 @@
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { IPagination, IPropertyType } from "@/types";
+import { RootState } from "..";
 import { fetchPropertyTypesInfoThunk } from "../actions/thunk/gql-async-thunk";
 
 export interface IPropertyTypesStore {
@@ -47,4 +48,5 @@ export const propertyTypesSlice = createSlice({
   },
 });
 
+export const propertyTypesSelector = (state: RootState) => state.propertyTypes;
 export default propertyTypesSlice.reducer;

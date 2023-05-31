@@ -1,6 +1,7 @@
 import { DefaultError } from "@/common";
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "@/types";
+import { RootState } from "..";
 import { fetchUserInfoThunk, signOutThunk } from "../actions/thunk";
 
 export interface IUserInfoStore {
@@ -53,4 +54,5 @@ export const userInfoSlice = createSlice({
   },
 });
 
+export const userSelector = (state: RootState) => state.user;
 export default userInfoSlice.reducer;
