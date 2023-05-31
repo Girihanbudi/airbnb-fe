@@ -6,9 +6,11 @@ import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
 import { Provider } from "react-redux";
-import { wrapper, store } from "@/store";
+import { store, i18n, getLocale } from "@/store";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  i18n.changeLanguage(getLocale());
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={lightTheme}>
