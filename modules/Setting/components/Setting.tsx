@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 
 import { IconButton } from "@mui/material";
 import { Tabs, SlideDialog } from "@/components";
@@ -9,7 +9,7 @@ import Locale from "./Locale";
 import LanguageIcon from "@mui/icons-material/Language";
 
 export const Setting = () => {
-  const { t } = useTranslation("header");
+  const { t } = useTranslation();
 
   const [open, setOpen] = useState(false);
 

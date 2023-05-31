@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 
 import { Box, Stack, Typography, Button } from "@mui/material";
 
@@ -37,7 +37,7 @@ export const SearchFilter = () => {
 };
 
 export const SearchBar = () => {
-  const { t } = useTranslation("header");
+  const { t } = useTranslation();
   const theme = useTheme();
 
   return (
@@ -53,7 +53,7 @@ export const SearchBar = () => {
                 borderBottomLeftRadius: 50,
               }}
             >
-              {t("buttonWhere")}
+              {t("btnWhere")}
             </TextButton>
             <Typography color={theme.palette.primary[100]}>|</Typography>
             <TextButton
@@ -62,7 +62,7 @@ export const SearchBar = () => {
                 pl: 1,
               }}
             >
-              {t("buttonWhen")}
+              {t("btnWhen")}
             </TextButton>
             <Typography color={theme.palette.primary[100]}>|</Typography>
             <TextButton
@@ -72,7 +72,7 @@ export const SearchBar = () => {
                 color: theme.palette.primary[100],
               }}
             >
-              {t("buttonGuest")}
+              {t("btnGuest")}
             </TextButton>
             <Button
               color="secondary"

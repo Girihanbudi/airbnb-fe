@@ -1,6 +1,11 @@
 import { useEffect } from "react";
-import { useTranslation } from "next-i18next";
-import { RootState, useAppSelector, useAppDispatch } from "@/store";
+import { useTranslation } from "react-i18next";
+import {
+  useAppDispatch,
+  useAppSelector,
+  cookieLocaleSelector,
+  localesSelector,
+} from "@/store";
 
 import { Typography, Box, Grid } from "@mui/material";
 import { OptionButton, OptionButtonLoader, DefaultError } from "@/components";
@@ -8,12 +13,12 @@ import { OptionButton, OptionButtonLoader, DefaultError } from "@/components";
 import { fetchLocalesThunk, changeLocaleThunk } from "@/store/actions/thunk";
 
 export const Locale = () => {
-  const { t } = useTranslation(["header", "default-error"]);
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
   // Redux
-  const cookieLocale = useAppSelector((state: RootState) => state.cookieLocale);
-  const locales = useAppSelector((state: RootState) => state.locales);
+  const cookieLocale = useAppSelector(cookieLocaleSelector);
+  const locales = useAppSelector(localesSelector);
   useEffect(() => {
     dispatch(fetchLocalesThunk({ keys: ["name", "local", "code"] }));
   }, [dispatch]);
@@ -50,18 +55,14 @@ export const Locale = () => {
         </Grid>
       );
     } else {
-      return (
-        <DefaultError sx={{ py: 12 }}>
-          {t(`default-error:${locales.error!}`)}
-        </DefaultError>
-      );
+      return <DefaultError sx={{ py: 12 }}>{t(locales.error!)}</DefaultError>;
     }
   };
 
   return (
     <Box>
       <Typography variant="h5" sx={{ fontWeight: 500 }}>
-        {t("header:chooseLanguageAndRegion")}
+        {t("txtChooseLanguageAndRegion")}
       </Typography>
       <Box sx={{ pt: 2, height: "100%" }}>{<RenderContent />}</Box>
     </Box>

@@ -1,6 +1,6 @@
 import { useState, useEffect, UIEvent } from "react";
 import Link from "next/link";
-import { RootState, useAppSelector, useAppDispatch } from "@/store";
+import { useAppDispatch, useAppSelector, countriesSelector } from "@/store";
 
 import {
   Typography,
@@ -11,7 +11,7 @@ import {
   InputAdornment,
   SelectChangeEvent,
 } from "@mui/material";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 import { OutlinedTextField } from "@/components/OutlinedTextField";
 import SlideDialog from "@/components/SlideDialog";
 import AnimatedGradientButton from "@/components/AnimatedGradientButton";
@@ -33,7 +33,7 @@ export interface SignFormProps {
 }
 
 export const SignForm = ({ open, onClose }: SignFormProps) => {
-  const { t } = useTranslation("auth");
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
   const [selectedPhoneCode, setSelectedPhoneCode] = useState<string>("");
@@ -43,7 +43,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
   };
 
   // Redux
-  const countries = useAppSelector((state: RootState) => state.countries);
+  const countries = useAppSelector(countriesSelector);
   useEffect(() => {
     dispatch(fetchCountriesThunk({ keys: ["name", "phoneCode"] }));
   }, [dispatch]);
@@ -63,7 +63,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
 
   const Title = () => {
     return (
-      <Typography sx={{ fontWeight: "bold" }}>{t("loginSignup")}</Typography>
+      <Typography sx={{ fontWeight: "bold" }}>{t("txtLoginSignup")}</Typography>
     );
   };
 
@@ -76,7 +76,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
       handleClose={onClose}
     >
       <Typography variant="h5" sx={{ mt: 2, fontWeight: "bold" }}>
-        {t("welcomeToAirbnb")}
+        {t("txtWelcomeToAirbnb")}
       </Typography>
       <Stack sx={{ my: 1 }}>
         <OutlinedSelectField
@@ -111,25 +111,25 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
           }}
         />
         <Typography sx={{ fontSize: 12.5, my: 1 }}>
-          {t("rateWarningPhone")}.{" "}
+          {t("txtRateWarningPhone")}.{" "}
           <Box component="span" sx={{ fontWeight: "bold" }}>
             <Link href="/help/privacy-policy" target="_blank">
-              {t("privacyPolicy")}
+              {t("txtPrivacyPolicy")}
             </Link>
           </Box>
         </Typography>
         <AnimatedGradientButton sx={{ my: 1 }}>
-          {t("continueWithPhone")}
+          {t("btnContinueWithPhone")}
         </AnimatedGradientButton>
       </Stack>
-      <Divider sx={{ my: 1 }}>{t("continueOr")}</Divider>
+      <Divider sx={{ my: 1 }}>{t("txtContinueOr")}</Divider>
       <Stack spacing={1} sx={{ my: 1, pt: 1.5 }}>
         <OptionLoginButton
           uri="/auth/sessions/google"
           onClose={onClose}
           Icon={<GoogleIcon sx={{ color: "#ff4000" }} />}
         >
-          {t("continueWithGoogle")}
+          {t("btnContinueWithGoogle")}
         </OptionLoginButton>
 
         <OptionLoginButton
@@ -137,7 +137,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
           onClose={onClose}
           Icon={<FacebookIcon sx={{ color: "#4267B2" }} />}
         >
-          {t("continueWithFacebook")}
+          {t("btnContinueWithFacebook")}
         </OptionLoginButton>
 
         <OptionLoginButton
@@ -145,7 +145,7 @@ export const SignForm = ({ open, onClose }: SignFormProps) => {
           onClose={onClose}
           Icon={<MailOutlineOutlinedIcon sx={{ color: "#000000" }} />}
         >
-          {t("continueWithEmail")}
+          {t("btnContinueWithEmail")}
         </OptionLoginButton>
       </Stack>
     </SlideDialog>

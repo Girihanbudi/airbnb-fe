@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState, MouseEvent } from "react";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 import { getCookie } from "cookies-next";
 import { useAppDispatch } from "@/store";
 
@@ -16,7 +16,7 @@ import { IsLoggedIn } from "@/types";
 import { signOutThunk } from "@/store/actions/thunk";
 
 const AccountView = () => {
-  const { t } = useTranslation("header");
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -45,67 +45,75 @@ const AccountView = () => {
   };
 
   const unloggedActionContent = [
-    <MenuItem key={t("signUp")} onClick={openSignForm} sx={{ fontWeight: 600 }}>
-      {t("signUp")}
+    <MenuItem
+      key={t("txtSignUp")}
+      onClick={openSignForm}
+      sx={{ fontWeight: 600 }}
+    >
+      {t("txtSignUp")}
     </MenuItem>,
-    <MenuItem key={t("logIn")} onClick={openSignForm}>
-      {t("logIn")}
+    <MenuItem key={t("txtLogIn")} onClick={openSignForm}>
+      {t("txtLogIn")}
     </MenuItem>,
     <Divider key={"divider-1"} />,
-    <MenuItem key={t("airbnbSetup")} onClick={handleClose}>
-      {t("airbnbSetup")}
+    <MenuItem key={t("txtAirbnbSetup")} onClick={handleClose}>
+      {t("txtAirbnbSetup")}
     </MenuItem>,
-    <MenuItem key={t("hostAnExperience")} onClick={handleClose}>
-      {t("hostAnExperience")}
+    <MenuItem key={t("txtHostAnExperience")} onClick={handleClose}>
+      {t("txtHostAnExperience")}
     </MenuItem>,
-    <MenuItem key={t("help")} onClick={handleClose}>
-      {t("help")}
+    <MenuItem key={t("txtHelp")} onClick={handleClose}>
+      {t("txtHelp")}
     </MenuItem>,
   ];
 
   const loggedActionContent = [
     <MenuItem
-      key={t("messages")}
+      key={t("txtMessages")}
       onClick={openSignForm}
       sx={{ fontWeight: 600 }}
     >
-      {t("messages")}
-    </MenuItem>,
-    <MenuItem key={t("trips")} onClick={openSignForm} sx={{ fontWeight: 600 }}>
-      {t("trips")}
+      {t("txtMessages")}
     </MenuItem>,
     <MenuItem
-      key={t("wishlists")}
+      key={t("txtTrips")}
       onClick={openSignForm}
       sx={{ fontWeight: 600 }}
     >
-      {t("wishlists")}
+      {t("txtTrips")}
+    </MenuItem>,
+    <MenuItem
+      key={t("txtWishlists")}
+      onClick={openSignForm}
+      sx={{ fontWeight: 600 }}
+    >
+      {t("txtWishlists")}
     </MenuItem>,
     <Divider key={"divider-2"} />,
-    <MenuItem key={t("airbnbSetup")} onClick={handleClose}>
-      {t("airbnbSetup")}
+    <MenuItem key={t("txtAirbnbSetup")} onClick={handleClose}>
+      {t("txtAirbnbSetup")}
     </MenuItem>,
-    <MenuItem key={t("hostAnExperience")} onClick={handleClose}>
-      {t("hostAnExperience")}
+    <MenuItem key={t("txtHostAnExperience")} onClick={handleClose}>
+      {t("txtHostAnExperience")}
     </MenuItem>,
-    <MenuItem key={t("referAHost")} onClick={handleClose}>
-      {t("referAHost")}
+    <MenuItem key={t("txtReferAHost")} onClick={handleClose}>
+      {t("txtReferAHost")}
     </MenuItem>,
-    <MenuItem key={t("account")} onClick={handleClose}>
-      <Link href="/account-settings">{t("account")}</Link>
+    <MenuItem key={t("v")} onClick={handleClose}>
+      <Link href="/account-settings">{t("txtAccount")}</Link>
     </MenuItem>,
     <Divider key={"divider-3"} />,
-    <MenuItem key={t("help")} onClick={handleClose}>
-      {t("help")}
+    <MenuItem key={t("txtHelp")} onClick={handleClose}>
+      {t("txtHelp")}
     </MenuItem>,
     <MenuItem
-      key={t("logOut")}
+      key={t("txtLogOut")}
       onClick={() => {
         handleClose();
         signOut();
       }}
     >
-      {t("logOut")}
+      {t("txtLogOut")}
     </MenuItem>,
   ];
 

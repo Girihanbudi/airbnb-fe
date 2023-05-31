@@ -1,6 +1,11 @@
 import { useEffect } from "react";
-import { useTranslation } from "next-i18next";
-import { RootState, useAppSelector, useAppDispatch } from "@/store";
+import { useTranslation } from "react-i18next";
+import {
+  useAppDispatch,
+  useAppSelector,
+  cookieCurrencySelector,
+  currenciesSelector,
+} from "@/store";
 import { Typography, Box, Grid } from "@mui/material";
 import { OptionButton, OptionButtonLoader, DefaultError } from "@/components";
 
@@ -10,14 +15,12 @@ import {
 } from "@/store/actions/thunk";
 
 export const Currency = () => {
-  const { t } = useTranslation(["header", "default-error"]);
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
   // Redux
-  const cookieCurrency = useAppSelector(
-    (state: RootState) => state.cookieCurrency
-  );
-  const currencies = useAppSelector((state: RootState) => state.currencies);
+  const cookieCurrency = useAppSelector(cookieCurrencySelector);
+  const currencies = useAppSelector(currenciesSelector);
   useEffect(() => {
     dispatch(fetchCurrenciesThunk({ keys: ["name", "symbol", "code"] }));
   }, [dispatch]);
@@ -55,9 +58,7 @@ export const Currency = () => {
       );
     } else {
       return (
-        <DefaultError sx={{ py: 12 }}>
-          {t(`default-error:${currencies.error!}`)}
-        </DefaultError>
+        <DefaultError sx={{ py: 12 }}>{t(currencies.error!)}</DefaultError>
       );
     }
   };
@@ -65,7 +66,7 @@ export const Currency = () => {
   return (
     <Box>
       <Typography variant="h5" sx={{ fontWeight: 500 }}>
-        {t("header:chooseCurrency")}
+        {t("txtChooseCurrency")}
       </Typography>
       <Box sx={{ pt: 2, height: "100%" }}>{<RenderContent />}</Box>
     </Box>
